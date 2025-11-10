@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "useDefineForClassFields": true,
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "data-model/*": [
+        "./node_modules/obsidian-dataview/lib/data-model/*"
+      ],
+      "api/*": [
+        "./node_modules/obsidian-dataview/lib/api/*"
+      ],
+      "data-index/*": [
+        "./node_modules/obsidian-dataview/lib/data-index/*"
+      ],
+      "query/*": [
+        "./node_modules/obsidian-dataview/lib/query/*"
+      ],
+      "expression/*": [
+        "./node_modules/obsidian-dataview/lib/expression/*"
+      ],
+      "settings": [
+        "./node_modules/obsidian-dataview/lib/settings"
+      ]
+    },
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": false,
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedSideEffectImports": true,
+    "target": "ES2020",
+    "module": "CommonJS",
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "removeComments": true
+  },
+  "include": [
+    "src",
+    "global.d.ts",
+  ],
+}
