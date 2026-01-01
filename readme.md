@@ -2,7 +2,7 @@
 
 This is a collection of snippets for Obsidian, I'm using them to speed up my workflow and to learn more about the Obsidian API.
 
-## Overview
+## Scripts
 
 ### Heading List
 
@@ -21,3 +21,9 @@ await window.getHeadingsList({
   randomize: true,
 });
 ```
+
+## CSS Snippets
+
+### Neutralize Flashing Effect
+
+### Clean Up Note Title
