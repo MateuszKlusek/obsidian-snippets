@@ -1,13 +1,9 @@
-import type { DataviewInlineApi } from "obsidian-dataview";
+import type { DataviewInlineApi } from 'obsidian-dataview';
+import type types = require('./src/types');
 
 declare global {
   interface Window {
-    getHeadingsList: (
-      dv: DataviewInlineApi,
-      root: string,
-      filesToSkip: string[],
-      randomize: boolean
-    ) => void;
+    getHeadingsList: (props: types.GetHeadingsListProps) => void;
   }
   const dv: DataviewInlineApi;
 }

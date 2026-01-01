@@ -1,5 +1,3 @@
-import type { DataviewInlineApi } from 'obsidian-dataview';
-
 /**
 I'm using this function to get a list of headings from a given root and then display them in a list, with an option to randomize the order.
   
@@ -8,16 +6,18 @@ dv is a global object that is provided by the Obsidian Dataview API. (dv is a de
 This is a loading script, window.getHeadingsList is used to attach a function to the window object of the Electron app and then call it in other scripts with:
   
  ```dataviewjs
-	await window.getHeadingsList(dv, "Git", ["Outline"], true)
+	await window.getHeadingsList({dv, root: "Git", filesToSkip: ["Outline"], randomize: true})
   ```
  */
 
-const getHeadingsList = async (
-  dv: DataviewInlineApi,
-  root: string,
-  filesToSkip: string[],
-  randomize: boolean,
-) => {
+import type { GetHeadingsListProps } from '../src/types';
+const getHeadingsList = async ({
+  dv,
+  root,
+  filesToSkip = [],
+  headingLevel = 1,
+  randomize = false,
+}: GetHeadingsListProps) => {
   if (!root) return '';
 
   const elementsToReturn: string[] = [];
@@ -33,9 +33,9 @@ const getHeadingsList = async (
     const lines = content.split('\n');
 
     for (const line of lines) {
-      if (line.startsWith('####')) {
-        const headerText = line.replace(/^####\s*/, '');
-        const link = `[[${page.file.name}#${headerText}|${headerText}]]`;
+      if (isHeadingLevel(line, headingLevel)) {
+        const headerText = line.replace(`#${headingLevel} `, '');
+        const link = `[[${page.file.name}${headerText}|${headerText}]]`;
         elementsToReturn.push(link);
       }
     }
@@ -53,6 +53,11 @@ const getHeadingsList = async (
       });
   }
 };
+
+function isHeadingLevel(line: string, level: number) {
+  const regex = new RegExp(`^#{${level}}\\s`);
+  return regex.test(line);
+}
 
 dv.paragraph('getHeadingsList implementation');
 
