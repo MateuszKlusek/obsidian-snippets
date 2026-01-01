@@ -10,6 +10,14 @@ This is a snippet that I'm using to get a list of headings from a given root and
 
 the heading list script needs to be leaded in the Obsidian app, before it can be called in other scripts with
 
-```dataviewjs
-    await window.getHeadingsList({dv: dv, root: "Git", tags: ["Outline"], randomize: true})
+used with ```dataviewjs code section
+
+```ts
+await window.getHeadingsList({
+  dv: dv,
+  root: 'Git',
+  filesToSkip: ['Outline'],
+  headingLevel: 1,
+  randomize: true,
+});
 ```
