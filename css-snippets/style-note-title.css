@@ -1,0 +1,4 @@
+/* clean up a note title to make it look like a normal text, to be more distinguishable from the the h1 text */
+.inline-title {
+  color: white;
+}

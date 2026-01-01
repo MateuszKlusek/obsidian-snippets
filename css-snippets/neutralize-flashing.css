@@ -1,0 +1,7 @@
+/* Neutralize is-flashing effect */
+.is-flashing {
+  animation: none !important;
+  transition: none !important;
+  background-color: inherit !important;
+  color: inherit !important;
+}
