@@ -11,5 +11,5 @@ This is a snippet that I'm using to get a list of headings from a given root and
 the heading list script needs to be leaded in the Obsidian app, before it can be called in other scripts with
 
 ```dataviewjs
-    await window.getHeadingsList(dv, "Git", ["Outline"], true)
+    await window.getHeadingsList({dv: dv, root: "Git", tags: ["Outline"], randomize: true})
 ```
