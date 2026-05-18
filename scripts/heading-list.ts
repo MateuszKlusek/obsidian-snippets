@@ -16,6 +16,7 @@ import type { GetHeadingsListProps } from '../src/types/types';
 const getHeadingsList = async ({
   dv,
   root,
+  // TODO: add handing nested filesToSkip, currently it's only checking file names, regardless of the path
   filesToSkip = [],
   headingLevels = [1, 2, 3, 4],
   randomize = false,
