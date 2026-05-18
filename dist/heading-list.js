@@ -2,7 +2,7 @@ const getHeadingsList = async ({
   dv: dv2,
   root,
   filesToSkip = [],
-  headingLevel = 1,
+  headingLevels = [1, 2, 3, 4],
   randomize = false,
 }) => {
   if (!root) return '';
@@ -10,16 +10,14 @@ const getHeadingsList = async ({
   const pages = dv2
     .pages(`"${root}"`)
     .filter((p) => !filesToSkip.includes(p.file.name));
-  for (const page of pages) {
-    const content = await dv2.io.load(page.file.path);
-    if (!content) continue;
-    const lines = content.split('\n');
-    for (const line of lines) {
-      if (isHeadingLevel(line, headingLevel)) {
-        const headerText = line.replace(`#${headingLevel} `, '');
-        const link = `[[${page.file.name}${headerText}|${headerText}]]`;
-        elementsToReturn.push(link);
-      }
+  for (const page of pages.values) {
+    const file = dv2.app.vault.getAbstractFileByPath(page.file.path);
+    const cache = dv2.app.metadataCache.getFileCache(file);
+    for (const heading of cache?.headings ?? []) {
+      if (!headingLevels?.includes(heading.level)) continue;
+      const headerName = heading.heading;
+      const wikiLink = `[[${file?.path}#${headerName}|${headerName}]]`;
+      elementsToReturn.push(wikiLink);
     }
   }
   if (!randomize) {
@@ -34,9 +32,5 @@ const getHeadingsList = async ({
       });
   }
 };
-function isHeadingLevel(line, level) {
-  const regex = new RegExp(`^#{${level}}\\s`);
-  return regex.test(line);
-}
 dv.paragraph('getHeadingsList implementation');
 window.getHeadingsList = getHeadingsList;

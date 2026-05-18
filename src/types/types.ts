@@ -4,7 +4,7 @@ export type GetHeadingsListProps = {
   dv: DataviewInlineApi;
   root: string;
   filesToSkip?: string[];
-  headingLevel?: number;
+  headingLevels?: number[];
   randomize?: boolean;
 };
 
