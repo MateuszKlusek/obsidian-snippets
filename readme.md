@@ -36,4 +36,14 @@ await window.getVaultFolderStructure({ dv });
 
 ### Neutralize Flashing Effect
 
+By deafult, Obsidian has a flashing effect when you navigate to a note from a link, this CSS snippet is used to remove it.
+
 ### Clean Up Note Title
+
+This CSS snippet is used to clean up a note title to make it look like a normal text, to be more distinguishable from the the h1 text.
+
+## Misc
+
+### dv
+
+it's a global object provided by Obsidian Dataview API. It needs to be referenced/passed as a parameter, not imported.
