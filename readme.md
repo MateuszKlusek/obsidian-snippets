@@ -22,6 +22,16 @@ await window.getHeadingsList({
 });
 ```
 
+### Vault Folder Structure
+
+This is a snippet that I'm using to get a list of folder structure from the vault and copy it to the clipboard.
+
+used with ```dataviewjs code section
+
+```ts
+await window.getVaultFolderStructure({ dv });
+```
+
 ## CSS Snippets
 
 ### Neutralize Flashing Effect
