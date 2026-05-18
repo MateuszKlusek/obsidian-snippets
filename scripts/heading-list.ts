@@ -6,7 +6,7 @@ dv is a global object that is provided by the Obsidian Dataview API. (dv is a de
 This is a loading script, window.getHeadingsList is used to attach a function to the window object of the Electron app and then call it in other scripts with:
   
  ```dataviewjs
-	await window.getHeadingsList({dv, root: "Git", filesToSkip: ["Outline"], randomize: true, })
+	await window.getHeadingsList({dv, root: "Git", filesToSkip: ["Outline"], randomize: true, headingLevels: [1, 2] })
   ```
  */
 

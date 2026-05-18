@@ -17,7 +17,7 @@ await window.getHeadingsList({
   dv: dv,
   root: 'Git',
   filesToSkip: ['Outline'],
-  headingLevel: 1,
+  headingLevels: [1, 2],
   randomize: true,
 });
 ```
