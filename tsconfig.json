@@ -28,6 +28,9 @@
       ],
       "settings": [
         "./node_modules/obsidian-dataview/lib/settings"
+      ],
+      "obsidian": [
+        "./node_modules/obsidian/obsidian.d.ts"
       ]
     },
     /* Bundler mode */

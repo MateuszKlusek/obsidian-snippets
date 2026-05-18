@@ -1,5 +1,6 @@
 // Dataview API doesn't provide types for the data it returns, so we need to construct them manually.
 // might be flawed, but it's a start.
+// sunsetted, maybe used in the future
 
 interface DataviewDateTime {
   ts: number;

@@ -7,3 +7,7 @@ export type GetHeadingsListProps = {
   headingLevel?: number;
   randomize?: boolean;
 };
+
+export type GetVaultFolderStructureProps = {
+  dv: DataviewInlineApi;
+};

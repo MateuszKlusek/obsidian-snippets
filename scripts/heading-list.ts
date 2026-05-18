@@ -10,7 +10,7 @@ This is a loading script, window.getHeadingsList is used to attach a function to
   ```
  */
 
-import type { GetHeadingsListProps } from '../src/types';
+import type { GetHeadingsListProps } from '../src/types/types';
 const getHeadingsList = async ({
   dv,
   root,

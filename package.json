@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "obsidian": "^1.12.3",
     "obsidian-dataview": "^0.5.68",
     "prettier": "^3.6.2",
     "typescript": "~5.9.3",
